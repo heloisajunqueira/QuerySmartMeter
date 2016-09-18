@@ -3,12 +3,6 @@ SELECT
 System.Timestamp AS myTimestamp,
     ObjectName as SensorSmartMeter,
     
-    --Última corrente medida
-    LAST(Armss0) OVER (PARTITION BY ObjectName LIMIT DURATION(ss, 3) WHEN Armss0 IS NOT NULL) AS Last_Irms0,
-    LAST(Armss1) OVER (PARTITION BY ObjectName LIMIT DURATION(ss, 3) WHEN Armss1 IS NOT NULL) AS Last_Irms1,
-    LAST(Armss2) OVER (PARTITION BY ObjectName LIMIT DURATION(ss, 3) WHEN Armss2 IS NOT NULL) AS Last_Irms2,
-    LAST(Armss3) OVER (PARTITION BY ObjectName LIMIT DURATION(ss, 3) WHEN Armss3 IS NOT NULL) AS Last_Irms3,
-   
    --Corrente ao longo do tempo
    Armss0 AS Sensor0,
    Armss1 AS Sensor1, 
